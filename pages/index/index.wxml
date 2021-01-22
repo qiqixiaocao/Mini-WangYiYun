@@ -1,0 +1,42 @@
+<!--pages/demo/index.wxml-->
+<view style="width:100%;height:100%;padding:30rpx 25rpx;box-sizing:border-box">
+  <view class="page__bd">
+    <mp-searchbar bindinput="search" bindclear="clear" cancel="{{false}}"></mp-searchbar>
+  </view>
+  <view wx:for="{{songs}}" wx:if="{{songs.length}}" wx:key="id">
+    <text data-id="{{item.id}}" bindtap="goSearch">{{item.name}}-{{item.ar[0].name}}</text>
+  </view>
+  <swiper indicator-dots="{{true}}" autoplay="{{true}}" interval="{{2000}}" duration="{{500}}"
+    wx:if="{{imgUrls.length}}" style="margin-top:25rpx;border-radius:30rpx">
+    <swiper-item wx:for="{{imgUrls}}" wx:key="id">
+      <image src="{{item.imageUrl}}" style="width:100%;height:100%;border-radius:30rpx">
+      </image>
+    </swiper-item>
+  </swiper>
+  <view style="margin-top:20rpx">
+    <text style="font-size:40rpx">推荐歌单</text>
+    <view class="musicList">
+      <view wx:if="{{NewMusicList.length}}" wx:for="{{NewMusicList}}" wx:key="id" class="musicList-item"
+        data-id="{{item.id}}" bindtap="goMusicList">
+        <image src="{{item.picUrl}}" style="width:100%;height:200rpx;border-radius:30rpx"></image>
+        <text style="display:block;font-size:30rpx;height:100rpx;overflow: hidden;">{{item.name}}</text>
+      </view>
+      <button class="mini-btn" type="default" size="mini" plain="{{true}}" bindtap="moreMusic"
+        wx:if="{{SongLimit<=54? true:false}}" loading="{{loading}}">更多></button>
+    </view>
+  </view>
+  <view style="margin-top:20rpx">
+    <text style="font-size:40rpx">推荐MV</text>
+    <view class="musicList">
+      <view wx:if="{{NewMVList.length}}" wx:for="{{NewMVList}}" wx:key="id" class="musicList-item" data-id="{{item.id}}"
+        bindtap="goMV">
+        <image src="{{item.cover}}" style="width:100%;height:200rpx;border-radius:30rpx"></image>
+        <text style="display:block;font-size:30rpx;height:50rpx;overflow: hidden;text-align:center">{{item.name}}</text>
+        <text
+          style="display:block;font-size:30rpx;height:50rpx;overflow: hidden;text-align:center">{{item.artistName}}</text>
+      </view>
+      <button class="mini-btn" type="default" size="mini" plain="{{true}}" bindtap="moreMV"
+        wx:if="{{MVLimit<=54? true:false}}" loading="{{loading1}}">更多></button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,24 @@
+<!--pages/musicplayer/index.wxml-->
+<view style="width:100%">
+  <view style="width:100%">
+    <text
+      style="display:inline-block;font-size:40rpx;width:100%;box-sizing:border-box;padding-left:20rpx;padding-right:20rpx;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;text-align:center">{{musicDetail.name}}</text>
+    <view
+      style="width:100%;box-sizing:border-box;padding-left:20rpx;padding-right:20rpx;display:flex;justify-content:center;margin-bottom:30rpx">
+      <text data-id="{{musicDetail.ar[0].id}}" bindtap="goSingerDetail" style="margin-right:30rpx">{{musicDetail.ar[0].name}}</text>
+      <text data-id="{{musicDetail.ar[1].id}}" wx:if="{{musicDetail.ar.length>1}}"
+        bindtap="goSingerDetail" style="margin-right:30rpx">{{musicDetail.ar[1].name}}</text>
+      <text data-id="{{musicDetail.ar[2].id}}" wx:if="{{musicDetail.ar.length>1}}"
+        bindtap="goSingerDetail">{{musicDetail.ar[2].name}}</text>
+    </view>
+  </view>
+  <image src="{{musicDetail.al.picUrl}}"
+    style="width:600rpx;height:600rpx;border-radius:50%;transform:{{transform}};transition:{{transition}};margin-left:80rpx;margin-bottom:30rpx">
+  </image>
+  <audio poster="{{musicDetail.al.picUrl}}" name="{{musicDetail.name}}" author="{{musicDetail.ar[0].name}}"
+    src="{{musicUrl}}" id="myAudio" controls loop></audio>
+  <view style="margin:0 auto;width:60%;margin-top:30rpx">
+    <button type="primary" plain="true" bindtap="audioPlay" wx:if="{{!isPlay}}">播放</button>
+    <button type="warn" plain="true" bindtap="audioPause" wx:if="{{isPlay}}">暂停</button>
+  </view>
+</view>

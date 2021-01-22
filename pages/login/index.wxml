@@ -1,0 +1,27 @@
+<!--index.wxml-->
+<view style="width:100%;height:100%">
+  <image
+    src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20160726%2F0041955d377a46d7ab272d1030271197_th.png&refer=http%3A%2F%2Fimg.mp.itc.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1613703370&t=9250675023968d448d3ec21e0657164e"
+    class="login-cover">
+  </image>
+  <view style="position: relative">
+    <mp-cells>
+      <mp-cell prop="phone" title="手机号">
+        <input bindinput="formInputChange" data-field="phone" value="{{formData.phone}}" placeholder="请输入手机号" />
+      </mp-cell>
+      <mp-cell prop="password" title="密码">
+        <input bindinput="formInputChange" data-field="password" value="{{formData.password}}"
+          password='{{passwordType}}' placeholder="请输入密码" class="input" />
+      </mp-cell>
+    </mp-cells>
+    <image src='{{defaultType? "../../img/2.png": "../../img/1.png"}}' bindtap='eyeStatus' class="icon-pwd"
+      wx:if="{{formData.password}}"></image>
+  </view>
+  <view>
+    <button class="weui-btn" type="primary" bindtap="login" style="margin-bottom:30rpx;margin-top:30rpx" plain="true"
+      disabled="{{formData.phone&&formData.password? false:true}}">登录</button>
+  </view>
+  <view>
+    <button class="weui-btn" type="primary" bindtap="userinfo" plain="true">注册</button>
+  </view>
+</view>

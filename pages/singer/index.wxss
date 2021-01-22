@@ -1,0 +1,4 @@
+/* pages/singer/index.wxss */
+div{
+  justify-content: space-around;
+}

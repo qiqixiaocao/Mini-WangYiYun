@@ -1,0 +1,13 @@
+/* pages/demo/index.wxss */
+.musicList{
+  width: 100%;
+  margin-top:15rpx;
+  display: flex;
+  justify-content: space-between;
+  align-content: space-between;
+  flex-wrap: wrap;
+}
+.musicList-item{
+  width: 30%;
+  margin-bottom: 20rpx;
+}

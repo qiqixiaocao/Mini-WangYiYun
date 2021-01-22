@@ -1,0 +1,23 @@
+<!--pages/demo/index.wxml-->
+<view style="width:100%">
+  <view style="width:100%;display:flex;justify-content:space-around;margin-top:40rpx;margin-bottom:30rpx">
+    <image src="{{userMsg.profile.avatarUrl}}" style="width:200rpx;height:200rpx;border-radius:50%"></image>
+    <text style="font-size:50rpx;line-height:200rpx">{{userMsg.profile.nickname}}</text>
+    <text style="font-size:50rpx;line-height:200rpx">LV.{{userMsg.level}}</text>
+  </view>
+  <text style="font-size:50rpx;margin:0 0 20rpx 30rpx">我的歌单{{playList.length}}个</text>
+  <view style="width:100%;padding:20rpx;box-sizing:border-box;overflow:hidden;">
+    <view wx:for="{{playList}}" bindtap="goMusicList" data-id="{{item.id}}" wx:key="id"
+      style="width:100%;overflow:hidden;margin-bottom:30rpx">
+      <image src="{{item.coverImgUrl}}" style="width:200rpx;height:200rpx;border-radius:30rpx;float:left"></image>
+      <view style="float:left;display:flex;flex-direction:column;margin-top:35rpx;margin-left:30rpx">
+        <text style="font-size:40rpx">{{item.name}}</text>
+        <text style="font-size:36rpx">共{{item.trackCount}}首</text>
+      </view>
+    </view>
+  </view>
+  <button type="warn" plain="true" bindtap="openConfirm" style="margin:0 auto;width:60%;margin-top:30rpx">退出登录</button>
+  <mp-dialog show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
+    <view>您确定要退出登录吗？</view>
+  </mp-dialog>
+</view>

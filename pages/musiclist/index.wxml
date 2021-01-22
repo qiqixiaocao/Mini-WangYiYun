@@ -1,0 +1,23 @@
+<!--pages/about/index.wxml-->
+<view style="width:100%;mini-height:100%;padding:20rpx 0 20rpx 20rpx">
+  <view style="overflow:hidden">
+    <image src="{{ListDetail.coverImgUrl}}" style="float:left;width:300rpx;height:300rpx;border-radius: 30rpx"></image>
+    <view style="float:left;overflow:hidden;margin-top:70rpx;margin-left:30rpx">
+      <image src="{{creator.avatarUrl}}" style="width:110rpx;height:110rpx;border-radius:50%;"></image>
+      <text style="display:inline-block;font-size:40rpx;margin-left:20rpx;width:280rpx;line-height:110rpx;overflow:hidden;white-space:nowrap">{{creator.nickname}}</text>
+      <text style="display:block;font-size:40rpx;margin-top:10rpx;margin-left:30rpx">共计{{allSongs.length}}首单曲</text>
+    </view>
+  </view>
+  <view style="width:100%;overflow:hidden;">
+    <view wx:for="{{allSongs}}" data-id="{{item.id}}" wx:key="id" bindtap="goMusicPlayer" style="width:100%;overflow:hidden;position:relative;margin:20rpx 0">
+      <text style="float:left;width:80rpx;font-size:50rpx;margin-top:20rpx;margin-right:20rpx">{{index+1}}</text>
+      <text style="font-size:35rpx;overflow:hidden;display:inline-block;width:70%;white-space:nowrap;text-overflow:ellipsis">{{item.name}}</text>
+      <view style="font-size:30rpx;width:70%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden">
+        <text>{{item.ar[0].name}}</text>
+        <text wx:if="{{item.ar.length>1}}" style="margin-left:20rpx">{{item.ar[1].name}}</text>
+        <text wx:if="{{item.ar.length>1}}" style="margin-left:20rpx">{{item.ar[2].name}}</text>
+      </view>
+      <image src="../../img/2.png" style="position:absolute;top:20%;right:5%;width:60rpx;height:60rpx"></image>
+    </view>
+  </view>
+</view>

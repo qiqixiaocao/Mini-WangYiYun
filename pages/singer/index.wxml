@@ -1,0 +1,24 @@
+<!--pages/singer/index.wxml-->
+<view style="width:100%">
+  <view style="width:100%;display:flex;justify-content:space-around;margin-top:20rpx">
+    <button class="mini-btn" type="{{default}}" bindtap="onTabClick" data-value="0" size="mini">华语</button>
+    <button class="mini-btn" type="{{default}}" bindtap="onTabClick" data-value="1" size="mini">欧美</button>
+    <button class="mini-btn" type="{{default}}" bindtap="onTabClick" data-value="2" size="mini">日本</button>
+    <button class="mini-btn" type="{{default}}" bindtap="onTabClick" data-value="3" size="mini">韩国</button>
+    <button class="mini-btn" type="{{default}}" bindtap="onTabClick" data-value="4" size="mini">其他</button>
+  </view>
+  <view
+    style="width:100%;padding:20rpx;box-sizing:border-box;display:flex;justify-content:space-between;flex-wrap:wrap">
+    <view style="width:30%;margin-bottom:20rpx" wx:for="{{singers}}" data-id="{{item.id}}" wx:key="id"
+      bindtap="goSingerDetail">
+      <image src="{{item.img1v1Url}}" style="width:100%;height:200rpx;border-radius:30rpx;"></image>
+      <text
+        style="display:block;width:100%;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{item.name}}</text>
+    </view>
+    <view style="margin:0 auto;">
+      <button type="default" plain="true" bindtap="getMore"
+      size="mini"
+      loading="{{loading}}">更多></button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,22 @@
+<!--pages/mvplayer/index.wxml-->
+<view style="width:100%">
+  <view
+    style="width:100%;display:flex;justify-content:center;text-align:center;font-size:40rpx;height:120rpx;margin-bottom:20rpx"
+    bindtap="goSingerDetail" data-id="{{mvDetail.artistId}}">
+    <view style="width:75%;margin-left:40rpx;text-align:center">
+      <text style="display:block">{{mvDetail.name}}</text>
+      <text style="display:block">{{mvDetail.artistName}}</text>
+    </view>
+    <image src="{{mvDetail.cover}}"
+      style="width:110rpx;height:110rpx;border-radius:50%;margin-right:40rpx;transform:{{transform}};transition:{{transition}}"
+      id="musicPic"></image>
+  </view>
+  <video src="{{mvUrl}}" title="{{mvDetail.name}}-{{mvDetail.artistName}}" style="width:100%"
+    autoplay="{{true}}" custom-cache="{{false}}" muted="{{false}}"></video>
+  <view style="width:100%">
+    <text wx:if="{{mvDetail.desc}}"
+      style="display:block;width:100%;font-size:40rpx;line-height:80rpx;text-align:center">MV简介</text>
+    <text wx:if="{{mvDetail.desc}}" user-select="{{all}}"
+      style="display:block;padding:40rpx;padding-top:0">{{mvDetail.desc}}</text>
+  </view>
+</view>
